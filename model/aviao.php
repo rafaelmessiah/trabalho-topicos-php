@@ -4,64 +4,69 @@ function conectaBD(){
     return new PDO("mysql:host=localhost; dbname=meio_transporte", "root","");
 }
 // Cria uma função de cadastro de cliente no BD que recebe um Array
-function cadCarro($arrayCarro){
+function _cadastrarAviao($arrayAviao){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query retirando possíveis injections
-    $sql = $pdo ->prepare("INSERT INTO clientes VALUES(null, ?, ?, ?, ?)");
+    $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?, ?)");
     // Executa a query preparada
-    $sql -> execute(array_values($arrayCliente));
+    $sql -> execute(array_values($arrayAviao));
     // Retorna uma string
-    return "Carro Incluído com Sucesso!<br>";
+    return "Aviao Cadastrado com Sucesso!<br>";
 
 }
 // Cria uma função para alterar o cliente que recebe um Array
-function alteraCarro($Carro){
+function _alterarAviao($aviao){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Executa um Update na talbela clientes
-    $pdo -> exec('UPDATE clientes SET nome="'.$cliente['nome'].'",
-    sobrenome="'.$cliente['sobrenome'].'",
-    ddd="'.$cliente['ddd'].'",
-    telefone="'.$cliente['telefone'].'" WHERE id="'.$cliente['id'].'"');
-    return "Cliente Alterado com Sucesso!<br>";
+    $pdo -> exec('UPDATE aviao SET 
+        modelo,="'.$aviao['modelo'].'",
+        qdte_turbinas="'.$aviao['qdte_turbinas'].'",
+        capac_passageiros="'.$aviao['capac_passageiros'].'",
+        capc_carga="'.$aviao['capc_carga'].'",
+        comercial="'.$aviao['comercial']
+
+        .'" WHERE id_aviao="'.$aviao['id_aviao'].'"');
+
+    return "Aviao Alterado com Sucesso!<br>";
 }
 // Cria uma função de listar Array
-function listaCarros (){
+function _listarAviao (){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query para ser executada
-    $sql = $pdo -> prepare("SELECT * FROM clientes");
+    $sql = $pdo -> prepare("SELECT * FROM aviao");
     // Executa a query
     $sql -> execute();
     // Armazena o retorno em um Array
-    $clientes = $sql -> fetchAll();
+    $avioes = $sql -> fetchAll();
     // Retorna o Array preenchido
-    return $clientes;
+    return $avioes;
     
 }
 // Cria uma função de busca de cliente que recebe um id
-function buscaCarro($id){
+function _buscarAviao($id){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query para ser executada
-    $sql = $pdo -> prepare("SELECT * FROM clientes WHERE id = :id");
+    $sql = $pdo -> prepare("SELECT * FROM aviao WHERE id_aviao = :id");
     // Executa a query
     $sql -> execute(array('id' => $id));
     // Recebe um Array com o cliente selecionado
-    $clientes = $sql->fetch();
+    $aviao = $sql->fetch();
     // Retorna um Array com o cliente
-    return $clientes;
+    return $aviao;
 }
 //Cria uma função para deletar no BD
-function deletaCarro($id){
+function _deletarAviao($id){
     
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Executa a query para deletar
-    $pdo ->exec("DELETE FROM clientes WHERE id=$id");
+    $pdo ->exec("DELETE FROM aviao WHERE id_aviao=$id");
     // Retorna um texto
-    return "Cliente $id foi deletado com sucesso!<br>";
+    return "Aviao $id foi deletado com sucesso!<br>";
 }
 
 ?>

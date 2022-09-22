@@ -6,7 +6,7 @@
     <title> Página com BD</title>
 </head>
 <body>
-    <h1> Trabalhando com Banco de Dados</h1>
+    <h1> Trabalho - Tópicos Especiais - CRUD PHP</h1>
 <?php
 //Inclui o menu
     require_once("./menu.php");

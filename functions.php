@@ -6,16 +6,16 @@ function load_page() {
 
     switch($page){
         case "home":
-            require_once("./view/listaCliente.php");
+            require_once("./view/home.php");
         break;
-        case "cadastra":
-            require_once("./view/cadCLiente.php");
+        case "carro":
+            require_once("./view/listaCarro.php");
         break;
-        case "deletar":
-            require_once("./view/deletaCLiente.php");
+        case "aviao":
+            require_once("./view/listaAviao.php");
         break;
-        case "alterar":
-            require_once("./view/alteraCLiente.php");
+        case "trem":
+            require_once("./view/listaTrem.php");
         break;
         //Se não for nenhum dos casos carrega a home.
         default:
