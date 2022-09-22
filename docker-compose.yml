@@ -1,0 +1,35 @@
+#Rodar: docker-compose up --build -d
+version: "3.7"
+
+services:
+
+    php-apache:
+        image: php:8.0-apache
+        container_name: php-apache
+        networks:
+            - my_network
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - "8000:80"
+
+    db:
+        image: mysql:8.0
+        container_name: db-mysql
+        networks:
+            - my_network
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            - MYSQL_DATABASE=meio_transporte
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - ./db:/var/lib/mysql
+            - ./meio_transporte.sql:/docker-entrypoint-initdb.d/meio_transporte.sql
+        ports:
+            - "3333:3306"
+
+networks:
+    my_network:
+        name: my_network
+        driver: bridge
+        external: true
