@@ -1,25 +1,22 @@
 <?php 
+    echo "<h1> Página de Avião</h1>";
     // Inclui o arquivo de controle
     require_once("./controler/aviaoController.php");
-    // //Chama a função de listar clientes
-    // $arrayClientes = listarCliente();
-    // //Cria uma variável para concatenar os retornos
-    // $listaClientes = "<br><br><table>";
-    // //Percorre o Array com os clientes
-    // foreach($arrayClientes as $cliente){
-    //     //Concatena em string o resultado do Array
-    //     $listaClientes .='<tr>'
-    //     .'<td><a href="?p=deletar&del='.$cliente["id"].'"> Deletar </a></td>'
-    //     .'<td><a href="?p=alterar&alt='.$cliente["id"].'"> Alterar </a></td>'
-    //     ."<td>Nome: ".$cliente["nome"]."</td>"
-    //     ."<td>Sobrenome: ".$cliente["sobrenome"]."</td>"
-    //     ."<td>DDD: ".$cliente["ddd"]."</td>"
-    //     ."<td>Telefone: ".$cliente["telefone"]."</td>"
-    //     ."</tr>";
-    // }
-    // //Retorna o Array completo e fecha a tabela
-
-
-    echo "<h1> Página de Aviao</h1>";
+    //Chama a função de listar clientes
+    $arrayAviao = listarAviao();
+    //Cria uma variável para concatenar os retornos
+    $listaAviao = "<br><br><table>";
+    //Percorre o Array com os clientes
+    foreach($arrayAviao as $aviao){
+        //Concatena em string o resultado do Array
+        print_r($listaAviao .='<tr>'
+        .'<td><a href="?p=home&del='.$aviao["id_aviao"].'"> Deletar </a></td>'
+        .'<td><a href="?p=home&alt='.$aviao["id_aviao"].'"> Alterar </a></td>'
+        ."<td>Modelo: ".$aviao["modelo"]."</td>"
+        ."<td>Quantidade de turbinas: ".$aviao["qdte_turbinas"]."</td>"
+        ."<td>Capacidade de passageiros: ".$aviao["capac_passageiros"]."</td>"
+        ."<td>Capacidade de carga: ".$aviao["capc_carga"]."</td>"
+        ."</tr>");
+    }
 ?>
 

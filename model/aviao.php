@@ -4,7 +4,7 @@ function conectaBD(){
     return new PDO("mysql:host=localhost; dbname=meio_transporte", "root","");
 }
 // Cria uma função de cadastro de cliente no BD que recebe um Array
-function _cadastrarAviao($arrayAviao){
+function cadastrar($arrayAviao){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query retirando possíveis injections
@@ -15,8 +15,8 @@ function _cadastrarAviao($arrayAviao){
     return "Aviao Cadastrado com Sucesso!<br>";
 
 }
-// Cria uma função para alterar o cliente que recebe um Array
-function _alterarAviao($aviao){
+//Cria uma função para alterar o cliente que recebe um Array
+function alterar($aviao){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Executa um Update na talbela clientes
@@ -24,15 +24,14 @@ function _alterarAviao($aviao){
         modelo,="'.$aviao['modelo'].'",
         qdte_turbinas="'.$aviao['qdte_turbinas'].'",
         capac_passageiros="'.$aviao['capac_passageiros'].'",
-        capc_carga="'.$aviao['capc_carga'].'",
-        comercial="'.$aviao['comercial']
+        capc_carga="'.$aviao['capc_carga']
 
         .'" WHERE id_aviao="'.$aviao['id_aviao'].'"');
 
     return "Aviao Alterado com Sucesso!<br>";
 }
 // Cria uma função de listar Array
-function _listarAviao (){
+function listar (){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query para ser executada
@@ -46,7 +45,7 @@ function _listarAviao (){
     
 }
 // Cria uma função de busca de cliente que recebe um id
-function _buscarAviao($id){
+function buscar($id){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query para ser executada
@@ -59,7 +58,7 @@ function _buscarAviao($id){
     return $aviao;
 }
 //Cria uma função para deletar no BD
-function _deletarAviao($id){
+function deletar($id){
     
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
