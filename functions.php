@@ -14,6 +14,15 @@ function load_page() {
         case "aviao":
             require_once("./view/listaAviao.php");
         break;
+        case "deletaAviao":
+            require_once("./view/deletaAviao.php");
+        break;
+        case "alteraAviao":
+            require_once("./view/alteraAviao.php");
+        break;
+        case "cadAviao":
+            require_once("./view/cadAviao.php");
+        break;
         case "trem":
             require_once("./view/listaTrem.php");
         break;

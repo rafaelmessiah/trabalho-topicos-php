@@ -33,10 +33,10 @@
     // }
 
     // Cria uma função de deletar cliente
-    // function deletarAviao($id){
-    //     //chama a função de deletar do BD
-    //    return deletar($id);
-    // }
+    function deletarAviao($id){
+        //chama a função de deletar do BD
+       return deletar($id);
+    }
 
     // Inclui o arquivo do model
     // Cria uma função de listagem
