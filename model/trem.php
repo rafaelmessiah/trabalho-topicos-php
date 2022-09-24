@@ -1,11 +1,16 @@
 <?php
-// Cria um objeto PDO com a string de conexão do banco de dados
+// Conexão com Banco
 function conectaBD(){
     return new PDO("mysql:host=localhost; dbname=meio_transporte", "root","");
 }
-// Cria uma função de cadastro de cliente no BD que recebe um Array
+
+/**
+ * Cadastra um Trem
+ * Recebe: Array com os dados
+ * Retorna: Mensagem de Sucesso
+ */
 function _cadastrarTrem($arrayTrem){
-    // Chama a função que cria um objeto PDO
+    // Faz conexão com banco
     $pdo = conectaBD();
     // Prepara a query retirando possíveis injections
     $sql = $pdo ->prepare("INSERT INTO trem VALUES(null, ?, ?, ?, ?, ?, ?)");
@@ -15,24 +20,33 @@ function _cadastrarTrem($arrayTrem){
     return "Trem Cadastrado com Sucesso!<br>";
 
 }
-// Cria uma função para alterar o cliente que recebe um Array
+
+/**
+ * Altera os dados de um Trem existente
+ * Recebe: Array com os dados
+ * Retorna: Mensagem de Sucesso
+ */
 function _alterarTrem($trem){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Executa um Update na talbela clientes
     $pdo -> exec('UPDATE trem SET 
-        modelo,="'.$trem['modelo'].'",
+        modelo="'.$trem['modelo'].'",
         cor="'.$trem['cor'].'",
         capacidade_passageiro="'.$trem['capacidade_passageiro'].'",
         qtde_vagoes="'.$trem['qtde_vagoes'].'",
         fonte_energia="'.$trem['fonte_energia'].'",
         fabricante="'.$trem['fabricante']
 
-        .'" WHERE id_trem="'.$trem['id'].'"');
+        .'" WHERE id_trem="'.$trem['id_trem'].'"');
 
     return "Trem Alterado com Sucesso!<br>";
 }
-// Cria uma função de listar Array
+
+/**
+ * Retorna uma lista de Trens cadastrados
+ * Retorna: Arrays de Trems
+ */
 function _listarTrem (){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
@@ -46,7 +60,12 @@ function _listarTrem (){
     return $trens;
     
 }
-// Cria uma função de busca de cliente que recebe um id
+
+/**
+ * Busca um Trem através do seu id
+ * Recebe: id do trem
+ * Retorna: Dados do Trem em um Array
+ */
 function _buscarTrem($id){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
@@ -59,7 +78,12 @@ function _buscarTrem($id){
     // Retorna um Array com o cliente
     return $trem;
 }
-//Cria uma função para deletar no BD
+
+/**
+ * Deleta um Trem através do seu id
+ * Recebe: id do trem
+ * Retorna: Mensagem de Sucesso
+ */
 function _deletarTrem($id){
     
     // Chama a função que cria um objeto PDO
