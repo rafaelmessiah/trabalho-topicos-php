@@ -10,14 +10,12 @@ function conectaBD(){
  * Retorna: Mensagem de Sucesso
  */
 function cadastrar($arrayAviao){
-    print_r($arrayAviao);
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query retirando possíveis injections
     $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?)");
     // Executa a query preparada
     $sql -> execute(array_values($arrayAviao));
-    print_r($sql);die;
     // Retorna uma string
     return "Avião Cadastrado com Sucesso!<br>";
 

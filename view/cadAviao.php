@@ -12,7 +12,7 @@
         //Chama a função de cadastro de aviao e envia o Array
         echo cadastrar($arrayAviao);
         //retorna um botão de voltar pra Home
-        echo '<a href="../index.php">Voltar<a/>';
+        echo '<a href="./?p=aviao">Voltar</a>';
     }
 ?>
 <br><br>
