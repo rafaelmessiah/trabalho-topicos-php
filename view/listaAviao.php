@@ -2,11 +2,11 @@
     echo "<h1> Página de Avião</h1> <br> <a href='./?p=cadAviao'>Cadastrar Avião</a> ";
     // Inclui o arquivo de controle
     require_once("./controler/aviaoController.php");
-    //Chama a função de listar clientes
+    //Chama a função de listar Avião
     $arrayAviao = listarAviao();
     //Cria uma variável para concatenar os retornos
     $listaAviao = "<br><br><table>";
-    //Percorre o Array com os clientes
+    //Percorre o Array com os Aviões
     foreach($arrayAviao as $aviao){
         //Concatena em string o resultado do Array
         print_r($listaAviao .='<tr>'

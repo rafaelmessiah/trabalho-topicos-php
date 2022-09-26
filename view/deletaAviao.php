@@ -4,7 +4,7 @@
     require_once("./controler/aviaoController.php");
     if (isset($_GET["del"])){
         //Chama a função de deletar e envia o ID, a função retorna uma string
-        echo deletaCli ($_GET["del"]);
+        echo deletarAviao ($_GET["del"]);
     }
 
 ?>

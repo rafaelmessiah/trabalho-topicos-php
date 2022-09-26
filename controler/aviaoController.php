@@ -2,46 +2,28 @@
     // Inclui o arquivo do model
     require_once("./model/aviao.php");
     
-    // Cria uma função para buscar o cliente que será alterado 
-    // function buscarAviao($id){
-    //     //Busca no Banco d dados o Cliente para ser alterado
-    //     return buscar($id);
-  
-    // }
+    //Cria uma função para buscar o avião que será alterado 
+    function buscarAviao($id){
+        return buscar($id);
+    }
 
-    // Cria uma função para alterar o cliente 
-    // function alterarAviao($aviao){
-    //     // Altera o cliente no Banco de dados
-    //     return alterar($aviao);
-    // }
+    //Cria uma função para alterar o avião 
+    function alterarAviao($aviao){
+        return alterar($aviao);
+    }
 
-    // Recebe os dados por POST e adiciona em um Array
-    // if (isset($_POST["modelo"])){
-    //     $arrayAviao = array (
-    //         "modelo" => $_POST["cor"],
-    //         "qdte_turbinas" => $_POST["ano_modelo"],
-    //         "capac_passageiros" => $_POST["tipo_motor"],
-    //         "capc_carga" => $_POST["cilindrada"],
-    //         "comercial" => $_POST["marca"],
-    //     );
-    //     //Chama a função de cadastro de cliente e envia o Array
-    //     echo cadastrar($arrayAviao);
-    //     //retorna um botão de voltar pra Home
-    //     echo '<a href="../index.php">Voltar<a/>';
-    // }else{
-    //     header("Location: ./?p=home");
-    // }
+    //Chama a função de Cadastro da model
+    function cadastrarTrem($aviao){
+        return cadastrar($aviao);
+    }
 
-    // Cria uma função de deletar cliente
+    //Cria uma função de deletar avião
     function deletarAviao($id){
-        //chama a função de deletar do BD
        return deletar($id);
     }
 
-    // Inclui o arquivo do model
-    // Cria uma função de listagem
+    //Cria uma função de listagem
     function listarAviao(){
-        // Chama a função de listar clientes do BD e armazena o retorno em um Array
         return $arrayAvioes = listar();
     }
 ?>

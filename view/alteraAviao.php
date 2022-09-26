@@ -2,21 +2,22 @@
 <?php
     // Inclui o arquivo de controle
     require_once("./controler/aviaoController.php");
+    
     if(isset($_GET["alt"])){
         //Chama a função de alterar o Array e envia o ID, a função retorna um Array
         try{
-        $arrayAviao = alterarAviao((int)$_GET["alt"]);
-        
-        throw new Exception('dentro do.', 45);
-    }catch(Exception $e){
-        echo "Erro :". $e->getMessage();
-        echo "<br> cod".$e->getCode();
+            $arrayAviao = buscarAviao((int)$_GET["alt"]);
+        }
+        catch(Exception $e){
+            echo "Erro :". $e->getMessage();
+            echo "<br> cod".$e->getCode();
+        }
     }
-    }
+
     //Se o formulário foi enviado preenche um Array com os novos dados
     if(isset($_POST["id_aviao"])){
         $arrayAviao = array (
-            "id" => $_POST["id_aviao"],
+            "id_aviao" => $_POST["id_aviao"],
             "modelo" => $_POST["modelo"],
             "qdte_turbinas" => $_POST["qdte_turbinas"],
             "capac_passageiros" => $_POST["capac_passageiros"],
@@ -28,7 +29,7 @@
 ?>
 <form method="post">
 <!-- Preenche o value dos campos dos formulários com os dados -->
-<input type="hidden" name="id" value="<?= isset($arrayAviao)? $arrayAviao['id_aviao'] : "" ?>">
+<input type="hidden" name="id_aviao" value="<?= isset($arrayAviao)? $arrayAviao['id_aviao'] : "" ?>">
 <table>
     <tr>
         <td><label>Modelo:</label></td>

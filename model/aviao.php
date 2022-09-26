@@ -1,25 +1,37 @@
 <?php
-// Cria um objeto PDO com a string de conexão do banco de dados
+// Conexão com Banco
 function conectaBD(){
     return new PDO("mysql:host=localhost; dbname=meio_transporte", "root","");
 }
-// Cria uma função de cadastro de cliente no BD que recebe um Array
+
+/**
+ * Cadastra um Avião
+ * Recebe: Array com os dados
+ * Retorna: Mensagem de Sucesso
+ */
 function cadastrar($arrayAviao){
+    print_r($arrayAviao);
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
     // Prepara a query retirando possíveis injections
-    $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?, ?)");
+    $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?)");
     // Executa a query preparada
     $sql -> execute(array_values($arrayAviao));
+    print_r($sql);die;
     // Retorna uma string
-    return "Aviao Cadastrado com Sucesso!<br>";
+    return "Avião Cadastrado com Sucesso!<br>";
 
 }
-//Cria uma função para alterar o cliente que recebe um Array
+
+/**
+ * Altera os dados de um Avião existente
+ * Recebe: Array com os dados
+ * Retorna: Mensagem de Sucesso
+ */
 function alterar($aviao){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
-    // Executa um Update na talbela clientes
+    // Executa um Update na tabela aviao
     $pdo -> exec('UPDATE aviao SET 
         modelo,="'.$aviao['modelo'].'",
         qdte_turbinas="'.$aviao['qdte_turbinas'].'",
@@ -28,9 +40,13 @@ function alterar($aviao){
 
         .'" WHERE id_aviao="'.$aviao['id_aviao'].'"');
 
-    return "Aviao Alterado com Sucesso!<br>";
+    return "Avião Alterado com Sucesso!<br>";
 }
-// Cria uma função de listar Array
+
+/**
+ * Retorna uma lista de Avião cadastrados
+ * Retorna: Arrays de Avião
+ */
 function listar (){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
@@ -44,7 +60,12 @@ function listar (){
     return $avioes;
     
 }
-// Cria uma função de busca de cliente que recebe um id
+
+/**
+ * Busca um Avião através do seu id
+ * Recebe: id do Avião
+ * Retorna: Dados do Avião em um Array
+ */
 function buscar($id){
     // Chama a função que cria um objeto PDO
     $pdo = conectaBD();
@@ -52,12 +73,17 @@ function buscar($id){
     $sql = $pdo -> prepare("SELECT * FROM aviao WHERE id_aviao = :id");
     // Executa a query
     $sql -> execute(array('id' => $id));
-    // Recebe um Array com o cliente selecionado
+    // Recebe um Array com o avião selecionado
     $aviao = $sql->fetch();
-    // Retorna um Array com o cliente
+    // Retorna um Array com o avião
     return $aviao;
 }
-//Cria uma função para deletar no BD
+
+/**
+ * Deleta um Avião através do seu id
+ * Recebe: id do Avião
+ * Retorna: Mensagem de Sucesso
+ */
 function deletar($id){
     
     // Chama a função que cria um objeto PDO
