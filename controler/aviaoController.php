@@ -13,7 +13,7 @@
     }
 
     //Chama a função de Cadastro da model
-    function cadastrarTrem($aviao){
+    function cadastrarAviao($aviao){
         return cadastrar($aviao);
     }
 
