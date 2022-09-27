@@ -9,7 +9,7 @@
 <body>
     <h1> Trabalho - Tópicos Especiais - CRUD PHP</h1>
 <?php
-//Inclui o menu
+    //Inclui o menu
     require_once("./menu.php");
     //Carrega página
     load_page();

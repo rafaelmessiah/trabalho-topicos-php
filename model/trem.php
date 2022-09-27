@@ -1,8 +1,5 @@
 <?php
-// Conexão com Banco
-function conectaBD(){
-    return new PDO("mysql:host=localhost; dbname=meio_transporte", "root", "");
-}
+require_once("./config/conn.php");
 
 /**
  * Cadastra um Trem

@@ -1,9 +1,5 @@
 <?php
-// Cria um objeto PDO com a string de conexão do banco de dados
-function conectaBD()
-{
-    return new PDO("mysql:host=localhost; dbname=meio_transporte", "root", "");
-}
+require_once("./config/conn.php");
 
 // Cria uma função de cadastro no BD do que recebe em um Array
 function _cadastrarCarro($arrayCarro)

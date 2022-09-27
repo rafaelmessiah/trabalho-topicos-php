@@ -6,7 +6,7 @@
       <synchronize>true</synchronize>
       <remarks>topicos especiais</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3333/meio_transporte</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/meio_transporte</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
