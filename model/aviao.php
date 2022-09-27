@@ -31,7 +31,7 @@ function alterar($aviao){
     $pdo = conectaBD();
     // Executa um Update na tabela aviao
     $pdo -> exec('UPDATE aviao SET 
-        modelo,="'.$aviao['modelo'].'",
+        modelo="'.$aviao['modelo'].'",
         qdte_turbinas="'.$aviao['qdte_turbinas'].'",
         capac_passageiros="'.$aviao['capac_passageiros'].'",
         capc_carga="'.$aviao['capc_carga']
