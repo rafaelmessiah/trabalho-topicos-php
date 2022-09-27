@@ -4,8 +4,10 @@ version: "3.7"
 services:
 
     php-apache:
-        image: php:8.0-apache
         container_name: php-apache
+        build:
+            context: ./
+            dockerfile: Dockerfile
         networks:
             - my_network
         volumes:
