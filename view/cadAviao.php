@@ -12,23 +12,25 @@
         //Chama a função de cadastro de aviao e envia o Array
         echo cadastrar($arrayAviao);
         //retorna um botão de voltar pra Home
-        echo '<a href="./?p=aviao">Voltar</a>';
+        echo '<a href="./?p=aviao"><button>Voltar</button></a>';
     }
 ?>
-<br><br>
+<br>
 <!-- O action envia por POST o forma para o controlador -->
-<form method="post">
-    <label>Modelo:</label>
-    <input type="text" name="modelo" required><br>
+<div>
+    <form method="post">
+        <label for="fname">Modelo:</label>
+        <input type="text" name="modelo" required><br>
 
-    <label>Quantidade de turbinas:</label>
-    <input type="text" name="qdte_turbinas" required><br>
+        <label>Quantidade de turbinas:</label>
+        <input type="text" name="qdte_turbinas" required><br>
 
-    <label>Capacidade de passageiros:</label>
-    <input type="text" name="capac_passageiros" required><br>
+        <label>Capacidade de passageiros:</label>
+        <input type="text" name="capac_passageiros" required><br>
 
-    <label>Capacidade de carga:</label>
-    <input type="text" name="capc_carga" required><br>
+        <label>Capacidade de carga:</label>
+        <input type="text" name="capc_carga" required><br>
 
-    <input type="submit" value="Salvar"><br>
-</form>
+        <input type="submit" value="Salvar"><br>
+    </form>
+</div>

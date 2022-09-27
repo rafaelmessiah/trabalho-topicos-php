@@ -27,11 +27,13 @@
         );
         //Chama a função para alterar o cliente e envia o Array alterado, a função retona uma string
         echo alterarTrem($arrayTrem);
+        echo '<a href="./?p=trem"><button>Voltar</button></a>';
     }
 ?>
-<br><br>
+<br>
 <form method="post">
 <!-- Preenche o value dos campos dos formulários com os dados -->
+<div>
 <input type="hidden" name="id_trem" value="<?= isset($arrayTrem)? $arrayTrem['id_trem'] : "" ?>">
 
     <label>Modelo:</label>        
@@ -55,5 +57,4 @@
     <input type="submit" value="Salvar">
     
 </form>
-<br>
-<a href="./?p=trem">Voltar</a>
+</div>

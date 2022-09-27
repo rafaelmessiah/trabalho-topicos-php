@@ -28,9 +28,11 @@
         );
         //Chama a função para alterar e envia o Array alterado, a função retona uma string
         echo alterarCarro($arrayCarro);
+        echo '<a href="./?p=carro"><button>Voltar</button></a>';
     }
 ?>
-<br><br>
+<br>
+<div>
 <form method="post">
     <!-- Preenche o value dos campos dos formulários com os dados -->
     <input type="hidden" name="id_carro" value="<?= isset($arrayCarro)? $arrayCarro['id_carro'] : "" ?>">
@@ -58,5 +60,4 @@
 
     <input type="submit" value="Salvar">
 </form>
-<br>
-<a href="./?p=carro">Voltar</a>
+</div>

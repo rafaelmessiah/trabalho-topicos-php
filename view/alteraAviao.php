@@ -25,9 +25,12 @@
         );
         //Chama a função para alterar o cliente e envia o Array alterado, a função retona uma string
         echo alterarAviao($arrayAviao);
+        //retorna um botão de voltar pra Home
+        echo '<a href="./?p=aviao"><button>Voltar</button></a>';
     }
 ?>
-<br><br>
+<br>
+<div>
 <form method="post">
 <!-- Preenche o value dos campos dos formulários com os dados -->
 <input type="hidden" name="id_aviao" value="<?= isset($arrayAviao)? $arrayAviao['id_aviao'] : "" ?>">
@@ -46,5 +49,4 @@
 
     <input type="submit" value="Salvar">
 </form>
-<br>
-<a href="./?p=aviao">Voltar</a>
+</div>

@@ -12,6 +12,7 @@
         <th></th>
         <th></th>
         <th>Modelo</th>
+        <th>Cor</th>
         <th>Capac. de Passageiros</th>
         <th>Qtde. de Vagões</th>
         <th>Fonte de Energia</th>
@@ -25,6 +26,7 @@
             .'<td><a href="?p=deletaTrem&del='.$trem["id_trem"].'"> Deletar </a></td>'
             .'<td><a href="?p=alteraTrem&alt='.$trem["id_trem"].'"> Alterar </a></td>'
             ."<td>".$trem["modelo"]."</td>"
+            ."<td>".$trem["cor"]."</td>"
             ."<td>".$trem["capacidade_passageiro"]."</td>"
             ."<td>".$trem["qtde_vagoes"]."</td>"
             ."<td>".$trem["fonte_energia"]."</td>"
