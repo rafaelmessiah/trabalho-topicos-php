@@ -21,7 +21,7 @@ function _alterarCarro($carro)
 {
     $pdo = conectaBD();
     $pdo->exec('UPDATE carro SET 
-        renavam,="' . $carro['renavam'] . '",
+        renavam="' . $carro['renavam'] . '",
         cor="' . $carro['cor'] . '",
         ano_modelo="' . $carro['ano_modelo'] . '",
         tipo_motor="' . $carro['tipo_motor'] . '",
