@@ -30,58 +30,33 @@
         echo alterarCarro($arrayCarro);
     }
 ?>
+<br><br>
 <form method="post">
-<!-- Preenche o value dos campos dos formulários com os dados -->
-<input type="hidden" name="id_carro" value="<?= isset($arrayCarro)? $arrayCarro['id_carro'] : "" ?>">
-<table>
-    <tr>
-        <td><label>Renavam:</label></td>
-        <td>
-            <input type="text" name="renavam" value="<?= isset($arrayCarro)? $arrayCarro["renavam"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Cor:</label></td>
-        <td>
-            <input type="text" name="cor" value="<?= isset($arrayCarro)? $arrayCarro["cor"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Ano do modelo:</label></td>
-        <td>
-            <input type="text" name="ano_modelo" value="<?= isset($arrayCarro)? $arrayCarro["ano_modelo"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Tipo de motor:</label></td>
-        <td>
-            <input type="text" name="tipo_motor" value="<?= isset($arrayCarro)? $arrayCarro["tipo_motor"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Cilindrada:</label></td>
-        <td>
-            <input type="text" name="cilindrada" value="<?= isset($arrayCarro)? $arrayCarro["cilindrada"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Marca:</label></td>
-        <td>
-            <input type="text" name="marca" value="<?= isset($arrayCarro)? $arrayCarro["marca"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Modelo:</label></td>
-        <td>
-            <input type="text" name="modelo" value="<?= isset($arrayCarro)? $arrayCarro["modelo"]: "" ?>">
-        </td>
-    </tr>
+    <!-- Preenche o value dos campos dos formulários com os dados -->
+    <input type="hidden" name="id_carro" value="<?= isset($arrayCarro)? $arrayCarro['id_carro'] : "" ?>">
 
-    <tr>
-        <td colspan="2"><input type="submit" value="Salvar"></td>
-    </tr>
-</table>
+    <label>Renavam:</label>
+    <input type="text" name="renavam" value="<?= isset($arrayCarro)? $arrayCarro["renavam"]: "" ?>"><br>
+
+    <label>Cor:</label>
+    <input type="text" name="cor" value="<?= isset($arrayCarro)? $arrayCarro["cor"]: "" ?>"><br>
+
+    <label>Ano do modelo:</label>
+    <input type="text" name="ano_modelo" value="<?= isset($arrayCarro)? $arrayCarro["ano_modelo"]: "" ?>"><br>
+
+    <label>Tipo de motor:</label>
+    <input type="text" name="tipo_motor" value="<?= isset($arrayCarro)? $arrayCarro["tipo_motor"]: "" ?>"><br>
+
+    <label>Cilindrada:</label>
+    <input type="text" name="cilindrada" value="<?= isset($arrayCarro)? $arrayCarro["cilindrada"]: "" ?>"><br>
+
+    <label>Marca:</label>
+    <input type="text" name="marca" value="<?= isset($arrayCarro)? $arrayCarro["marca"]: "" ?>"><br>
+
+    <label>Modelo:</label>
+    <input type="text" name="modelo" value="<?= isset($arrayCarro)? $arrayCarro["modelo"]: "" ?>"><br>
+
+    <input type="submit" value="Salvar">
 </form>
 <br>
-<!-- Cria um botão para voltar para a home -->
-<a href="./?p=home">Voltar</a>
+<a href="./?p=carro">Voltar</a>

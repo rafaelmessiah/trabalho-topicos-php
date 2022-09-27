@@ -11,4 +11,4 @@
 ?>
 <br>
 <!-- Cria um botão para voltar para a home -->
-<a href="./?p=home">Voltar</a>
+<a href="./?p=carro">Voltar</a>
