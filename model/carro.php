@@ -2,7 +2,7 @@
 // Cria um objeto PDO com a string de conexão do banco de dados
 function conectaBD()
 {
-    return new PDO("mysql:host=db-mysql; dbname=meio_transporte", "root", "root");
+    return new PDO("mysql:host=localhost; dbname=meio_transporte", "root", "");
 }
 
 // Cria uma função de cadastro no BD do que recebe em um Array
