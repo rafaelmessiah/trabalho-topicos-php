@@ -15,7 +15,7 @@
         //Chama a função de cadastro de trem e envia o Array
         echo _cadastrarTrem($arrayTrem);
         //retorna um botão de voltar pra Home
-        echo '<a href="../index.php">Voltar<a/>';
+        echo '<a href="./?p=trem">Voltar<a/>';
     }
 ?>
 
@@ -23,22 +23,22 @@
 <!-- O action envia por POST o forma para o controlador -->
 <form method="post">
     <label>Modelo:</label>
-    <input type="text" name="modelo" ><br>
+    <input type="text" name="modelo" required><br>
 
     <label>Cor:</label>
-    <input type="text" name="cor" ><br>
+    <input type="text" name="cor" required><br>
     
     <label>Capacidade de passageiros:</label>
-    <input type="text" name="capacidade_passageiro"><br>
+    <input type="text" name="capacidade_passageiro" required><br>
     
     <label>Quantidade de Vagões:</label>
-    <input type="text" name="qtde_vagoes"><br>
+    <input type="text" name="qtde_vagoes" required><br>
     
     <label>Fonte de Energia:</label>
-    <input type="text" name="fonte_energia"><br>
+    <input type="text" name="fonte_energia" required><br>
 
     <label>Fabricante:</label>
-    <input type="text" name="fabricante"><br>
+    <input type="text" name="fabricante" required><br>
     
     <input type="submit" value="Salvar"><br>
 </form>

@@ -27,38 +27,24 @@
         echo alterarAviao($arrayAviao);
     }
 ?>
+<br><br>
 <form method="post">
 <!-- Preenche o value dos campos dos formulários com os dados -->
 <input type="hidden" name="id_aviao" value="<?= isset($arrayAviao)? $arrayAviao['id_aviao'] : "" ?>">
-<table>
-    <tr>
-        <td><label>Modelo:</label></td>
-        <td>
-            <input type="text" name="modelo" value="<?= isset($arrayAviao)? $arrayAviao["modelo"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Quantidade de turbinas:</label></td>
-        <td>
-            <input type="text" name="qdte_turbinas" value="<?= isset($arrayAviao)? $arrayAviao["qdte_turbinas"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Capacidade de passageiros:</label></td>
-        <td>
-            <input type="text" name="capac_passageiros" value="<?= isset($arrayAviao)? $arrayAviao["capac_passageiros"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Capacidade de carga:</label></td>
-        <td>
-            <input type="text" name="capc_carga" value="<?= isset($arrayAviao)? $arrayAviao["capc_carga"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2"><input type="submit" value="Salvar"></td>
-    </tr>
-</table>
+
+    <label>Modelo:</label>
+    <input type="text" name="modelo" value="<?= isset($arrayAviao)? $arrayAviao["modelo"]: "" ?>"><br>
+
+    <label>Quantidade de turbinas:</label>
+    <input type="text" name="qdte_turbinas" value="<?= isset($arrayAviao)? $arrayAviao["qdte_turbinas"]: "" ?>"><br>
+
+    <label>Capacidade de passageiros:</label>
+    <input type="text" name="capac_passageiros" value="<?= isset($arrayAviao)? $arrayAviao["capac_passageiros"]: "" ?>"><br>
+
+    <label>Capacidade de carga:</label>
+    <input type="text" name="capc_carga" value="<?= isset($arrayAviao)? $arrayAviao["capc_carga"]: "" ?>"><br>
+
+    <input type="submit" value="Salvar">
 </form>
 <br>
 <a href="./?p=aviao">Voltar</a>

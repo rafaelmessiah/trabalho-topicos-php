@@ -29,52 +29,31 @@
         echo alterarTrem($arrayTrem);
     }
 ?>
+<br><br>
 <form method="post">
 <!-- Preenche o value dos campos dos formulários com os dados -->
 <input type="hidden" name="id_trem" value="<?= isset($arrayTrem)? $arrayTrem['id_trem'] : "" ?>">
-<table>
-    <tr>
-        <td><label>Modelo:</label></td>
-        <td>
-            <input type="text" name="modelo" value="<?= isset($arrayTrem)? $arrayTrem["modelo"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Cor:</label></td>
-        <td>
-            <input type="text" name="cor" value="<?= isset($arrayTrem)? $arrayTrem["cor"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Capacidade de passageiros:</label></td>
-        <td>
-            <input type="text" name="capacidade_passageiro" value="<?= isset($arrayTrem)? $arrayTrem["capacidade_passageiro"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Quantidade de Vagões:</label></td>
-        <td>
-            <input type="text" name="qtde_vagoes" value="<?= isset($arrayTrem)? $arrayTrem["qtde_vagoes"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Fonte de Energia:</label></td>
-        <td>
-            <input type="text" name="fonte_energia" value="<?= isset($arrayTrem)? $arrayTrem["fonte_energia"]: "" ?>">
-        </td>
-    </tr>
-    <tr>
-        <td><label>Fabricante:</label></td>
-        <td>
-            <input type="text" name="fabricante" value="<?= isset($arrayTrem)? $arrayTrem["fabricante"]: "" ?>">
-        </td>
-    </tr>
 
-    <tr>
-        <td colspan="2"><input type="submit" value="Salvar"></td>
-    </tr>
-</table>
+    <label>Modelo:</label>        
+    <input type="text" name="modelo" value="<?= isset($arrayTrem)? $arrayTrem["modelo"]: "" ?>"><br>
+
+    <label>Cor:</label>
+    <input type="text" name="cor" value="<?= isset($arrayTrem)? $arrayTrem["cor"]: "" ?>"><br>
+        
+    <label>Capacidade de passageiros:</label>
+    <input type="text" name="capacidade_passageiro" value="<?= isset($arrayTrem)? $arrayTrem["capacidade_passageiro"]: "" ?>"><br>
+        
+    <label>Quantidade de Vagões:</label>
+    <input type="text" name="qtde_vagoes" value="<?= isset($arrayTrem)? $arrayTrem["qtde_vagoes"]: "" ?>"><br>
+        
+    <label>Fonte de Energia:</label>
+    <input type="text" name="fonte_energia" value="<?= isset($arrayTrem)? $arrayTrem["fonte_energia"]: "" ?>"><br>
+    
+    <label>Fabricante:</label>
+    <input type="text" name="fabricante" value="<?= isset($arrayTrem)? $arrayTrem["fabricante"]: "" ?>"><br>
+    
+    <input type="submit" value="Salvar">
+    
 </form>
 <br>
-<!-- Cria um botão para voltar para a home -->
-<a href="./?p=home">Voltar</a>
+<a href="./?p=trem">Voltar</a>

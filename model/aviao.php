@@ -10,15 +10,19 @@ function conectaBD(){
  * Retorna: Mensagem de Sucesso
  */
 function cadastrar($arrayAviao){
-    // Chama a função que cria um objeto PDO
-    $pdo = conectaBD();
-    // Prepara a query retirando possíveis injections
-    $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?)");
-    // Executa a query preparada
-    $sql -> execute(array_values($arrayAviao));
-    // Retorna uma string
-    return "Avião Cadastrado com Sucesso!<br>";
-
+    try{
+        // Chama a função que cria um objeto PDO
+        $pdo = conectaBD();
+        // Prepara a query retirando possíveis injections
+        $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?)");
+        // Executa a query preparada
+        $sql -> execute(array_values($arrayAviao));
+        // Retorna uma string
+        return "Avião Cadastrado com Sucesso!<br>";
+    }catch(Exception $e){
+        echo "Erro :". $e->getMessage();
+        echo "<br> cod".$e->getCode();
+    }
 }
 
 /**
@@ -27,18 +31,23 @@ function cadastrar($arrayAviao){
  * Retorna: Mensagem de Sucesso
  */
 function alterar($aviao){
-    // Chama a função que cria um objeto PDO
-    $pdo = conectaBD();
-    // Executa um Update na tabela aviao
-    $pdo -> exec('UPDATE aviao SET 
-        modelo="'.$aviao['modelo'].'",
-        qdte_turbinas="'.$aviao['qdte_turbinas'].'",
-        capac_passageiros="'.$aviao['capac_passageiros'].'",
-        capc_carga="'.$aviao['capc_carga']
-
-        .'" WHERE id_aviao="'.$aviao['id_aviao'].'"');
-
-    return "Avião Alterado com Sucesso!<br>";
+    try{
+        // Chama a função que cria um objeto PDO
+        $pdo = conectaBD();
+        // Executa um Update na tabela aviao
+        $pdo -> exec('UPDATE aviao SET 
+            modelo="'.$aviao['modelo'].'",
+            qdte_turbinas="'.$aviao['qdte_turbinas'].'",
+            capac_passageiros="'.$aviao['capac_passageiros'].'",
+            capc_carga="'.$aviao['capc_carga']
+        
+            .'" WHERE id_aviao="'.$aviao['id_aviao'].'"');
+        
+        return "Avião Alterado com Sucesso!<br>";
+    }catch(Exception $e){
+        echo "Erro :". $e->getMessage();
+        echo "<br> cod".$e->getCode();
+    }
 }
 
 /**
@@ -46,17 +55,21 @@ function alterar($aviao){
  * Retorna: Arrays de Avião
  */
 function listar (){
-    // Chama a função que cria um objeto PDO
-    $pdo = conectaBD();
-    // Prepara a query para ser executada
-    $sql = $pdo -> prepare("SELECT * FROM aviao");
-    // Executa a query
-    $sql -> execute();
-    // Armazena o retorno em um Array
-    $avioes = $sql -> fetchAll();
-    // Retorna o Array preenchido
-    return $avioes;
-    
+    try{
+        // Chama a função que cria um objeto PDO
+        $pdo = conectaBD();
+        // Prepara a query para ser executada
+        $sql = $pdo -> prepare("SELECT * FROM aviao");
+        // Executa a query
+        $sql -> execute();
+        // Armazena o retorno em um Array
+        $avioes = $sql -> fetchAll();
+        // Retorna o Array preenchido
+        return $avioes;
+    }catch(Exception $e){
+        echo "Erro :". $e->getMessage();
+        echo "<br> cod".$e->getCode();
+    }
 }
 
 /**
@@ -65,16 +78,21 @@ function listar (){
  * Retorna: Dados do Avião em um Array
  */
 function buscar($id){
-    // Chama a função que cria um objeto PDO
-    $pdo = conectaBD();
-    // Prepara a query para ser executada
-    $sql = $pdo -> prepare("SELECT * FROM aviao WHERE id_aviao = :id");
-    // Executa a query
-    $sql -> execute(array('id' => $id));
-    // Recebe um Array com o avião selecionado
-    $aviao = $sql->fetch();
-    // Retorna um Array com o avião
-    return $aviao;
+    try{
+        // Chama a função que cria um objeto PDO
+        $pdo = conectaBD();
+        // Prepara a query para ser executada
+        $sql = $pdo -> prepare("SELECT * FROM aviao WHERE id_aviao = :id");
+        // Executa a query
+        $sql -> execute(array('id' => $id));
+        // Recebe um Array com o avião selecionado
+        $aviao = $sql->fetch();
+        // Retorna um Array com o avião
+        return $aviao;
+    }catch(Exception $e){
+        echo "Erro :". $e->getMessage();
+        echo "<br> cod".$e->getCode();
+    }
 }
 
 /**
@@ -83,13 +101,17 @@ function buscar($id){
  * Retorna: Mensagem de Sucesso
  */
 function deletar($id){
-    
-    // Chama a função que cria um objeto PDO
-    $pdo = conectaBD();
-    // Executa a query para deletar
-    $pdo ->exec("DELETE FROM aviao WHERE id_aviao=$id");
-    // Retorna um texto
-    return "Aviao $id foi deletado com sucesso!<br>";
+    try{
+        // Chama a função que cria um objeto PDO
+        $pdo = conectaBD();
+        // Executa a query para deletar
+        $pdo ->exec("DELETE FROM aviao WHERE id_aviao=$id");
+        // Retorna um texto
+        return "Aviao $id foi deletado com sucesso!<br>";
+    }catch(Exception $e){
+        echo "Erro :". $e->getMessage();
+        echo "<br> cod".$e->getCode();
+    }
 }
 
 ?>

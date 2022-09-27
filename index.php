@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Página com BD</title>
+    <link href="./view/css/index.css" rel="stylesheet">
 </head>
 <body>
     <h1> Trabalho - Tópicos Especiais - CRUD PHP</h1>

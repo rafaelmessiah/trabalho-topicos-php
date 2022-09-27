@@ -19,16 +19,16 @@
 <!-- O action envia por POST o forma para o controlador -->
 <form method="post">
     <label>Modelo:</label>
-    <input type="text" name="modelo" ><br>
+    <input type="text" name="modelo" required><br>
 
     <label>Quantidade de turbinas:</label>
-    <input type="text" name="qdte_turbinas" ><br>
+    <input type="text" name="qdte_turbinas" required><br>
 
     <label>Capacidade de passageiros:</label>
-    <input type="text" name="capac_passageiros"><br>
+    <input type="text" name="capac_passageiros" required><br>
 
     <label>Capacidade de carga:</label>
-    <input type="text" name="capc_carga"><br>
+    <input type="text" name="capc_carga" required><br>
 
     <input type="submit" value="Salvar"><br>
 </form>
