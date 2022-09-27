@@ -14,6 +14,7 @@
         <th>Quantidade de turbinas</th>
         <th>Capacidade de passageiros</th>
         <th>Capacidade de carga</th>
+        <th>Fonte de Energia</th>
     </tr>
     ";
     //Percorre o Array com os Aviões
@@ -27,6 +28,7 @@
             ."<td>".$aviao["qdte_turbinas"]."</td>"
             ."<td>".$aviao["capac_passageiros"]."</td>"
             ."<td>".$aviao["capc_carga"]."</td>"
+            ."<td>".$aviao["fonte_energia"]."</td>"
         ."</tr>";
     }
     echo "$listaAviao </table>";

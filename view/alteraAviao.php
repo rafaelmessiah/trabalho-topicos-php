@@ -22,6 +22,7 @@
             "qdte_turbinas" => $_POST["qdte_turbinas"],
             "capac_passageiros" => $_POST["capac_passageiros"],
             "capc_carga" => $_POST["capc_carga"],
+            "fonte_energia" => $_POST["fonte_energia"],
         );
         //Chama a função para alterar o cliente e envia o Array alterado, a função retona uma string
         echo alterarAviao($arrayAviao);
@@ -46,6 +47,9 @@
 
     <label>Capacidade de carga:</label>
     <input type="text" name="capc_carga" value="<?= isset($arrayAviao)? $arrayAviao["capc_carga"]: "" ?>"><br>
+
+    <label>Fonte de Energia:</label>
+    <input type="text" name="fonte_energia" value="<?= isset($arrayAviao)? $arrayAviao["fonte_energia"]: "" ?>"><br>
 
     <input type="submit" value="Salvar">
 </form>

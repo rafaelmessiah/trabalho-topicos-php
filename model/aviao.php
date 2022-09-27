@@ -14,7 +14,7 @@ function cadastrar($arrayAviao){
         // Chama a função que cria um objeto PDO
         $pdo = conectaBD();
         // Prepara a query retirando possíveis injections
-        $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?)");
+        $sql = $pdo ->prepare("INSERT INTO aviao VALUES(null, ?, ?, ?, ?, ?)");
         // Executa a query preparada
         $sql -> execute(array_values($arrayAviao));
         // Retorna uma string
@@ -39,7 +39,8 @@ function alterar($aviao){
             modelo="'.$aviao['modelo'].'",
             qdte_turbinas="'.$aviao['qdte_turbinas'].'",
             capac_passageiros="'.$aviao['capac_passageiros'].'",
-            capc_carga="'.$aviao['capc_carga']
+            capc_carga="'.$aviao['capc_carga'].'",
+            fonte_energia="'.$aviao['fonte_energia']
         
             .'" WHERE id_aviao="'.$aviao['id_aviao'].'"');
         

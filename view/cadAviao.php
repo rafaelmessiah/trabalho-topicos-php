@@ -8,6 +8,7 @@
             "qdte_turbinas" => $_POST["qdte_turbinas"],
             "capac_passageiros" => $_POST["capac_passageiros"],
             "capc_carga" => $_POST["capc_carga"],
+            "fonte_energia" => $_POST["fonte_energia"],
         );
         //Chama a função de cadastro de aviao e envia o Array
         echo cadastrar($arrayAviao);
@@ -30,6 +31,9 @@
 
         <label>Capacidade de carga:</label>
         <input type="text" name="capc_carga" required><br>
+
+        <label>Fonte de Energia:</label>
+        <input type="text" name="fonte_energia" required><br>
 
         <input type="submit" value="Salvar"><br>
     </form>

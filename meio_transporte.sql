@@ -15,7 +15,7 @@ CREATE TABLE `meio_transporte`.`aviao` (
   `qdte_turbinas` INT NULL,
   `capac_passageiros` INT NULL,
   `capc_carga` DECIMAL NULL,
-  `comercial` TINYINT NULL,
+  `fonte_energia` VARCHAR(45) NULL,
   PRIMARY KEY (`id_aviao`));
   
   CREATE TABLE `meio_transporte`.`trem` (
