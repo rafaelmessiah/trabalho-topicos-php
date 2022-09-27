@@ -12,6 +12,15 @@ function load_page() {
         case "carro":
             require_once("./view/listaCarro.php");
         break;
+        case "cadCarro":
+            require_once("./view/cadCarro.php");
+            break;
+        case "alteraCarro":
+            require_once("./view/alteraCarro.php");
+            break;
+        case "deletaCarro":
+            require_once("./view/deletaCarro.php");
+            break;
         //Aviões
         case "aviao":
             require_once("./view/listaAviao.php");
