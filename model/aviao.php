@@ -111,8 +111,3 @@ function deletar($id){
         echo "<br> cod".$e->getCode();
     }
 }
-
-?>
-
-
-

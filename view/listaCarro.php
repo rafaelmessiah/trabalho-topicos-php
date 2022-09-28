@@ -1,24 +1,27 @@
 <?php
 echo "<h1> Página de Carro</h1> <br> <a href='./?p=cadCarro'><button>Cadastro de Carro</button></a> ";
+
 // Inclui o arquivo de controle
 require_once("./controler/carroController.php");
+
 //Chama a função de listar
 $arrayTrens = _listarCarro();
+
 //Cria uma variável para concatenar os retornos
 $listaCarro = "<br><br>
-<table>
-<tr>
-    <th></th>
-    <th></th>
-    <th>Renavam</th>
-    <th>Cor</th>
-    <th>Ano do modelo</th>
-    <th>Tipo de motor</th>
-    <th>Cilindrada</th>
-    <th>Marca</th>
-    <th>Modelo</th>
-</tr>
-";
+                <table>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Renavam</th>
+                    <th>Cor</th>
+                    <th>Ano do modelo</th>
+                    <th>Tipo de motor</th>
+                    <th>Cilindrada</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                </tr>
+                ";
 
 //Percorre o Array
 if($arrayTrens) {

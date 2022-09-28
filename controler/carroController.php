@@ -10,7 +10,9 @@ function buscarCarro($id)
 }
 
 // Chama a função para alterar
-function alterarCarro($cliente)
+function salvarCarro($cliente)
 {
-    return _alterarCarro($cliente);
+    if(!empty($cliente['id_carro'])) return _alterarCarro($cliente);
+
+    return _cadastrarCarro($cliente);
 }
