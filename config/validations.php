@@ -24,16 +24,16 @@ function validate($post, $schema = [])
 {
     $errors = [];
 
-    foreach($schema as $item => $valid){
-        if(!isset($post[$item])) continue;
+    foreach ($schema as $item => $valid) {
+        if (!isset($post[$item])) continue;
 
         $validFn = is_array($valid) ? $valid : [$valid];
 
         $_err = [];
         $values = null;
-        foreach($validFn as $vFn){
+        foreach ($validFn as $vFn) {
 
-            if(str_contains($vFn, '[')){
+            if (str_contains($vFn, '[')) {
                 $ex = explode('[', $vFn);
                 $end = substr(end($ex), 0, -1);
 
@@ -45,14 +45,14 @@ function validate($post, $schema = [])
             $ref = $vFn;
             $vFn = '__' . $vFn;
 
-            if(!is_callable($vFn)) continue;
+            if (!is_callable($vFn)) continue;
 
-            if(!$vFn($post[$item], $values)){
+            if (!$vFn($post[$item], $values)) {
                 $_err[] = message($ref, $values);
             }
         }
 
-        if(count($_err) > 0){
+        if (count($_err) > 0) {
             $errors[$item] = $_err;
         }
     }
@@ -76,7 +76,7 @@ function message($text, $replace = null)
 
     $m = $messages[$text];
 
-    if($replace) $m = str_replace(':replace', (is_array($replace) ? implode(',', $replace) : $replace), $m);
+    if ($replace) $m = str_replace(':replace', (is_array($replace) ? implode(',', $replace) : $replace), $m);
 
     return $m;
 }
@@ -85,7 +85,7 @@ function showErrorMessage($errors, $ref)
 {
     $error = '';
 
-    if(isset($errors[$ref])) {
+    if (isset($errors[$ref])) {
         $message = $errors[$ref];
 
         if (!is_array($message)) $message = [$message];
@@ -107,29 +107,29 @@ function __required($value)
 
 function __integer($value)
 {
-    $nv = (int) $value;
+    $nv = (int)$value;
 
-    return (string) $nv == $value;
+    return (string)$nv == $value;
 }
 
 function __positive($value)
 {
-    $nv = (double) $value;
+    $nv = (double)$value;
 
     return $nv > 0;
 }
 
 function __float($value)
 {
-    $nv = (float) $value;
+    $nv = (float)$value;
 
-    return (string) $nv == $value;
+    return (string)$nv == $value;
 }
 
 function __values($value, $params = [])
 {
     $value = strtolower($value);
-    $params = array_map(function($v){
+    $params = array_map(function ($v) {
         return strtolower($v);
     }, $params);
 
@@ -138,50 +138,50 @@ function __values($value, $params = [])
 
 function __max($value, $params = 0)
 {
-    return strlen($value) <= (int) $params;
+    return strlen($value) <= (int)$params;
 }
 
 function __min($value, $params = 0)
 {
-    return strlen($value) > (int) $params;
+    return strlen($value) > (int)$params;
 }
 
 function __year($value)
 {
-    return (int) $value >= 1900;
+    return (int)$value >= 1900;
 }
 
-function __renavam ( $renavam ) {
-    $soma = 0;
-    // Cria array com as posições da string
-    $d = str_split($renavam);
-    $x = 0;
-    $digito = 0;
+function __renavam($renavam)
+{
+    $renavam = preg_replace('/[^0-9]/', '', $renavam);
+    $renavam = str_pad($renavam, 11, '0', STR_PAD_LEFT);
 
-    // Calcula os 4 primeiros digitos do renavam fazendo o calculo da primeira posição do array * 5 e vai diminuindo até chegar a 2
-    for ($i=5; $i >= 2; $i--) {
-        if(!isset($d[$x])) return false;
+    if ($renavam > 0) {
+        $renavamSemDigito = substr($renavam, 0, 10);
+        $renavamReversoSemDigito = strrev($renavamSemDigito);
+        $soma = 0;
+        $multiplicador = 2;
 
-        $soma += (int) $d[$x] * $i;
-        $x++;
-    }
+        for ($i = 0; $i < 10; $i++) {
+            $algarismo = substr($renavamReversoSemDigito, $i, 1);
+            $soma += $algarismo * $multiplicador;
 
-    // Faz o calculo de 11
-    $valor = $soma % 11;
+            if ($multiplicador >= 9) {
+                $multiplicador = 2;
+            } else {
+                $multiplicador++;
+            }
+        }
 
-    // Busca digito verificador
-    if ($valor == 11 || $valor == 0 || $valor >= 10) {
-        $digito = 0;
+        $mod11 = $soma % 11;
+        $ultimoDigitoCalculado = 11 - $mod11;
+        $ultimoDigitoCalculado = ($ultimoDigitoCalculado >= 10 ? 0 : $ultimoDigitoCalculado);
+        $digitoRealInformado = substr($renavam, -1);
+
+        return $ultimoDigitoCalculado == $digitoRealInformado;
+
     } else {
-        $digito = $valor;
-    }
-
-    // Verifica digito com a 5 posição do array
-    if(!isset($d[4])) return false;
-
-    if ($digito == $d[4]) {
-        return 1;
-    } else {
-        return 0;
+        return false;
     }
 }
+

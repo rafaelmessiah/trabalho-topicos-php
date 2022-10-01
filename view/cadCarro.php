@@ -49,7 +49,7 @@ if (isset($_POST["renavam"])) {
     $modelo = $_POST["modelo"] ?? null;
 
     $errors = validate($_POST, [
-        'renavam' => ['required', 'integer'],
+        'renavam' => ['required', 'integer', 'renavam'],
         'cor' => ['required', 'values[vermelho,azul,amarelo]'],
         'ano_modelo' => ['required', 'year'],
         'tipo_motor' => ['required'],
